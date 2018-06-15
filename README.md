@@ -1,1 +1,1 @@
-# w01d05-tyler-kyle
+# Tyler's solo repository for shopping list
