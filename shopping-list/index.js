@@ -16,7 +16,7 @@ const STORE = {
     { name: 'milk', checked: true, edited:false },
     { name: 'bread', checked: false, edited: false }
   ],
-  checkedShown: true//used for the toggling between showing and unshowing the checked item
+  checkedShown: true//used for the toggling between showing and unshowing the checked items
 };
 
 
@@ -40,8 +40,6 @@ const generateItemElement = function(item, itemIndex, template) {
       </div>
     </li>`;
 };
-/*<button class="shopping-item-edit js-item-edit">
-        <span class="button-label">edit</span>*/
 
 
 const generateShoppingItemsString = function(shoppingList) {
@@ -115,21 +113,6 @@ const handleDeleteItemClicked = function() {
   });
 };
 
-/*function handleEditItemField(){
-  //this function will be responsible for handling the edit field when it is clicked and showing a new submit button
-  $('.js-shopping-list').on('keypress', '.item-edit-input', event => {
-    const itemIndex = getItemIndexFromElement(event.currentTarget);
-   // $(event.currentTarget).closest('li').find('.item-edit-button').show();
-    /*const itemIndex = getItemIndexFromElement(event.currentTarget);
-    editItem(itemIndex);
-    renderShoppingList(itemIndex);
-  });
-}
-function toggleEditedItem(itemIndex)
-{
-  STORE.items.map()
-}*/
-
 const handleEditItemSubmission = function(){
   //edits the item after the user types something into the field and hits edit item??
   //let currentItem = STORE.items.itemIndex;
@@ -143,6 +126,7 @@ const handleEditItemSubmission = function(){
     //updateEditedItemName(updatedItemName);
     if (updatedItemName !== ''){//if not a blank string
       STORE.items[itemIndex].name = updatedItemName;
+      
     }
     else{
       //do nothing
@@ -150,18 +134,12 @@ const handleEditItemSubmission = function(){
     console.log(STORE.items[itemIndex].name);
     renderShoppingList();
   });
+  
 };
-
-/*function updateEditedItemName(updatedItemName){
-  const itemIndex = getItemIndexFromElement(event.currentTarget);
-  STORE[itemIndex].name = updatedItemName;
-  console.log(STORE[itemIndex].name);
-
-}*/
 
 const handleFilterCheckedClicked = function(){
 //this function will be responsible for handling the filter checked button when it is clicked
-  $('.checkedSwitchContainer').on('click', '.checkedSwitch-button', event => {
+  $('.checkedSwitchContainer').on('click','.checkedSwitch-button', event => {
     
     console.log('`handleFilterCheckedClicked` ran');
     let checkedStatus = toggleChecked();
@@ -191,20 +169,8 @@ const handleFilterSearchResults = function(){
     $('.shopping-list li').filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
-   
   });
-
 };
-  
-/*
-function showChecked(){//show checked off items on the list
-  $('.hidden').show();
-}
-
-function hideChecked(){//hide checked off items on the list
-  $('.hidden').hide();
-}
-}*/
 
 // this function will be our callback when the page loads. it's responsible for
 // initially rendering the shopping list, and activating our individual functions
@@ -215,7 +181,6 @@ function handleShoppingList() {
   handleNewItemSubmit();
   handleItemCheckClicked();
   handleDeleteItemClicked();
-  //handleEditItemField();
   handleFilterSearchResults();
   handleEditItemSubmission();
   handleFilterCheckedClicked();
